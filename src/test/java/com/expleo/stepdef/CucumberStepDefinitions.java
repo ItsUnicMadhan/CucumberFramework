@@ -1,53 +1,47 @@
 package com.expleo.stepdef;
 
-import static org.junit.Assert.assertEquals;
-
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+
+import com.expleo.base.BaseClass;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
-import io.restassured.specification.RequestSpecification;
 
-public class CucumberStepDefinitions {
+public class CucumberStepDefinitions extends BaseClass {
 
-	private Response response;
-	private ValidatableResponse json;
-	private RequestSpecification reqspec = new RequestSpecBuilder().build();
-	JsonPath jsonPath;
-
-	private String ENDPOINT_GET_BOOK_BY_ISBN = "https://www.googleapis.com/books/v1/volumes";
-	
-
-
-	@Given("prepare the request")
-	public void prepare_the_request() {
-		reqspec.queryParam("q", "isbn:9781451648546");
+	@Given("prepare the request with query param value {string} and value {string}")
+	public void prepare_the_request_with_query_param_value_and_value(String key, String value) {
+		queryParams(reqspec, key, value);
 	}
 
 	@When("api is invoked")
-	public void api_is_invoked() {
-			response=RestAssured.given().log().all(true).spec(reqspec).when().get(ENDPOINT_GET_BOOK_BY_ISBN).then().extract().response();
+	public void api_is_invoked() throws IOException {
+		sendGetRequestReturnResponse(reqspec, "ENDPOINT_GET_BOOK_BY_ISBN");
 	}
 
 	@Then("verify the status code")
-	public void verify_the_status_code(List<Map<String,String>> params) {
-		
-		json =response.then().statusCode(Integer.parseInt(params.get(0).get("StatusCode")));
+	public void verify_the_status_code(List<Map<String, String>> params) {
+
+		verifyTheStatusCode(params);
 	}
 
 	@Then("verify the error code and error response")
-	public void verify_the_error_code_and_error_response(List<Map<String,String>> errorParams) {
-		jsonPath=response.jsonPath();
-		response.then().statusCode(Integer.parseInt(errorParams.get(0).get("StatusCode")));
-		assertEquals(jsonPath.get(errorParams.get(0).get("ErrorKey")), errorParams.get(0).get("ErrorValue").toString());
+	public void verify_the_error_code_and_error_response(List<Map<String, String>> errorParams) {
+		verifyErrorCodeAndResponse(errorParams);
+	}
+
+	@Given("prepare the request")
+	public void prepare_the_request() {
+
+	}
+
+	@When("post endpoint is invoked")
+	public void post_endpoint_is_invoked() throws IOException {
+		String requestBody = "{\r\n" + "    \"name\": \"morpheus\",\r\n" + "    \"job\": \"leader\"\r\n" + "}";
+		sendPostRequestReturnResponse(reqspec, requestBody, "REQ_RES_CREATE");
 	}
 
 }
-
