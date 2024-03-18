@@ -36,7 +36,11 @@ pipeline {
                         pendingStepsNumber: -1, 
                         skippedStepsNumber: -1, 
                         sortingMethod: 'ALPHABETICAL', 
-                        undefinedStepsNumber: -1
+                        undefinedStepsNumber: -1,
+                             junit(
+        allowEmptyResults: true,
+        testResults: '**/test-reports/*.xml'
+      )
                 }
             }
         }
