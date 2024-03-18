@@ -1,7 +1,5 @@
 package com.expleo.base;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
 import java.io.FileInputStream;
@@ -11,6 +9,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.expleo.model.CreateRepoReq;
+import com.expleo.utils.RestUtils;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -19,8 +18,9 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import com.expleo.*;
 
-public class BaseClass {
+public class BaseClass extends RestUtils{
 
 	public Response response;
 	public ValidatableResponse json;
@@ -77,7 +77,7 @@ public class BaseClass {
 	}
 	
 	public Response callCreaterepoAndReturnResponse(CreateRepoReq createRepoReq) throws IOException {
-		response = RestAssured.given().header("Authorization", "Bearer " + getPropertyFileValue("token"))
+		response = RestAssured.given().header("Authorization", "Bearer " + decodeToken(getPropertyFileValue("token")))
 				.header("Content-Type", "application/json").contentType(ContentType.JSON).accept(ContentType.JSON)
 				.body(createRepoReq).when().post("user/repos").then().extract().response();
 		System.out.println(response.asPrettyString());
@@ -85,8 +85,9 @@ public class BaseClass {
 		
 	}
 	
+
 	public Response callDeleterepoAndReturnResponse() throws IOException {
-		response = RestAssured.given().header("Authorization", "Bearer " + getPropertyFileValue("token")).when()
+		response = RestAssured.given().header("Authorization", "Bearer " + decodeToken(getPropertyFileValue("token"))).when()
 		.delete("repos/ItsUnicMadhan/RESTAssured").then().extract().response();
 		System.out.println(response.asPrettyString());
 		return response;
@@ -94,7 +95,7 @@ public class BaseClass {
 	}
 	
 	public Response callUpdaterepoAndReturnResponse(CreateRepoReq createRepoReq) throws IOException {
-		response = RestAssured.given().header("Authorization", "Bearer " + getPropertyFileValue("token"))
+		response = RestAssured.given().header("Authorization", "Bearer " + decodeToken(getPropertyFileValue("token")))
 				.header("Content-Type", "application/json").contentType(ContentType.JSON).accept(ContentType.JSON)
 				.body(createRepoReq).when()
 				.patch("repos/ItsUnicMadhan/REST").then().extract().response();

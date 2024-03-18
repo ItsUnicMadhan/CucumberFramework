@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="6.226" tests="4" skipped="0" failures="0" errors="0">
+<testcase classname="Performing CRUD Operations Using Git" name="User calls web service to get list of repo's - Example #1.1" time="2.437">
+<system-out><![CDATA[
+Given prepare the request...................................................passed
+When getall repo endpoint is invoked........................................passed
+Then verify the status code.................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Performing CRUD Operations Using Git" name="User calls web service to create a repo in github - Example #1.1" time="1.641">
+<system-out><![CDATA[
+Given prepare the request body..............................................passed
+When create repo endpoint is invoked........................................passed
+Then verify the status code.................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Performing CRUD Operations Using Git" name="User calls web service to update a existing repo in github - Example #1.1" time="0.685">
+<system-out><![CDATA[
+Given prepare the request body for updating the repo........................passed
+When update repo endpoint is invoked........................................passed
+Then verify the status code.................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Performing CRUD Operations Using Git" name="User calls web service to delete a exsiting repo in github - Example #1.1" time="0.581">
+<system-out><![CDATA[
+Given prepare the request...................................................passed
+When delete repo endpoint is invoked........................................passed
+Then verify the status code.................................................passed
+]]></system-out>
+</testcase>
+</testsuite>

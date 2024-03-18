@@ -10,7 +10,6 @@ import java.util.Map;
 import org.junit.AfterClass;
 
 import com.expleo.base.BaseClass;
-import com.expleo.report.Reporting;
 
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
@@ -111,13 +110,6 @@ public class CucumberStepDefinitions extends BaseClass {
 	    }
 	   
 	}
-
-	@AfterClass
-	public static void afterClass() throws FileNotFoundException, IOException {
-	
-		Reporting.generateJVMReport("//target//report.json");
-	}
-
 
 
 }
