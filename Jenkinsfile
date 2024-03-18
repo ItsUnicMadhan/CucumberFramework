@@ -37,6 +37,7 @@ pipeline {
                         skippedStepsNumber: -1, 
                         sortingMethod: 'ALPHABETICAL', 
                         undefinedStepsNumber: -1
+                        junit testResults: '**/target/report.json'
                     
            }
         }
