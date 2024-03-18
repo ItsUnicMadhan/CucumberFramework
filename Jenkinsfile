@@ -26,7 +26,6 @@ pipeline {
             }
             post {                 
                 always {
-                    script{
                         cucumber buildStatus: 'null', 
                         customCssFiles: '', 
                         customJsFiles: '', 
@@ -37,14 +36,9 @@ pipeline {
                         pendingStepsNumber: -1, 
                         skippedStepsNumber: -1, 
                         sortingMethod: 'ALPHABETICAL', 
-                        undefinedStepsNumber: -1
-                    }
-                    script{
-                       junit(
-        allowEmptyResults: true,
-        testResults: '**/test-reports/*.xml'
-      )
-                    }
+                        undefinedStepsNumber: -1,
+                        junit '**/target/surefire-reports/TEST-*.xml'
+                    
            }
         }
     }
