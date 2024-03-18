@@ -1,6 +1,15 @@
 pipeline {
     agent any
     stages {
+    	stage('Delete workspace'){
+
+          steps{
+
+             deleteDir()
+
+          }
+
+      	}
         stage('Git_Clone'){
             steps {
               git 'https://github.com/ItsUnicMadhan/CucumberFramework.git'  

@@ -1,5 +1,7 @@
 package com.expleo.base;
 
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
 import java.io.FileInputStream;
@@ -8,8 +10,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import com.expleo.model.CreateRepoReq;
+
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
@@ -21,6 +26,7 @@ public class BaseClass {
 	public ValidatableResponse json;
 	public RequestSpecification reqspec = new RequestSpecBuilder().build();
 	public JsonPath jsonPath;
+	public CreateRepoReq createRepReq= new CreateRepoReq();
 
 	public static String getPropertyFileValue(String value) throws IOException {
 		FileInputStream file = new FileInputStream("src\\test\\resources\\app.properties");
@@ -59,5 +65,41 @@ public class BaseClass {
 		jsonPath = response.jsonPath();
 		response.then().statusCode(Integer.parseInt(errorParams.get(0).get("StatusCode")));
 		assertEquals(jsonPath.get(errorParams.get(0).get("ErrorKey")), errorParams.get(0).get("ErrorValue").toString());
+	}
+	
+
+	public Response callGetallrepoAndReturnResponse() {
+		response = RestAssured.given().spec(reqspec).when().log().all().get("users/ItsUnicMadhan/repos").then().extract().response();
+		System.out.println(response.asPrettyString());
+		return response;
+		
+		
+	}
+	
+	public Response callCreaterepoAndReturnResponse(CreateRepoReq createRepoReq) throws IOException {
+		response = RestAssured.given().header("Authorization", "Bearer " + getPropertyFileValue("token"))
+				.header("Content-Type", "application/json").contentType(ContentType.JSON).accept(ContentType.JSON)
+				.body(createRepoReq).when().post("user/repos").then().extract().response();
+		System.out.println(response.asPrettyString());
+		return response;
+		
+	}
+	
+	public Response callDeleterepoAndReturnResponse() throws IOException {
+		response = RestAssured.given().header("Authorization", "Bearer " + getPropertyFileValue("token")).when()
+		.delete("repos/ItsUnicMadhan/RESTAssured").then().extract().response();
+		System.out.println(response.asPrettyString());
+		return response;
+		
+	}
+	
+	public Response callUpdaterepoAndReturnResponse(CreateRepoReq createRepoReq) throws IOException {
+		response = RestAssured.given().header("Authorization", "Bearer " + getPropertyFileValue("token"))
+				.header("Content-Type", "application/json").contentType(ContentType.JSON).accept(ContentType.JSON)
+				.body(createRepoReq).when()
+				.patch("repos/ItsUnicMadhan/REST").then().extract().response();
+		System.out.println(response.asPrettyString());
+		return response;
+		
 	}
 }

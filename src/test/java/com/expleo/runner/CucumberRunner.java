@@ -9,6 +9,6 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		plugin = {"pretty", "html:target/cucumber-Report.html", "json:target/report.json"},
 		glue = {"com.expleo.stepdef"},
-		features = {"src/test/resources/features"},
+		features = {"src/test/resources/features/GitCRUD.feature"},
 		dryRun = false)
 public class CucumberRunner {}
