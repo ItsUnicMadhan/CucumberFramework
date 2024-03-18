@@ -39,9 +39,7 @@ pipeline {
                         undefinedStepsNumber: -1,
                         junit allowEmptyResults: true,
                         testResults: '**/test-reports/*.xml'
-                }
-    }
-            }
+           }
         }
     }
 }
