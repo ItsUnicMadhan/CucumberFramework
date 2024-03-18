@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'WinNode1' }
+    agent { label 'WinNode' }
     stages {
     	stage('Delete workspace'){
 
