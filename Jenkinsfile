@@ -37,7 +37,7 @@ pipeline {
                         skippedStepsNumber: -1, 
                         sortingMethod: 'ALPHABETICAL', 
                         undefinedStepsNumber: -1,
-                        junit '**/target/surefire-reports/TEST-*.xml'
+                        junit testResults: '**/target/surefire-reports/TEST-*.xml'
                     
            }
         }
