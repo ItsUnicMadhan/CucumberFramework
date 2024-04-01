@@ -1,159 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="18.296" tests="4" skipped="0" failures="4" errors="0">
-<testcase classname="Performing CRUD Operations Using Thinking Tester" name="User calls web service to create a contact - Example #1.1" time="1.049">
-<failure type="java.lang.IllegalArgumentException" message="Header value cannot be null">
-<![CDATA[java.lang.IllegalArgumentException: Header value cannot be null
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
-	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:60)
-	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:86)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:57)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
-	at io.restassured.internal.common.assertion.AssertParameter.notNull(AssertParameter.groovy:26)
-	at io.restassured.internal.common.assertion.AssertParameter$notNull.callStatic(Unknown Source)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallStatic(CallSiteArray.java:53)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callStatic(AbstractCallSite.java:217)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callStatic(AbstractCallSite.java:240)
-	at io.restassured.internal.RequestSpecificationImpl.header(RequestSpecificationImpl.groovy:869)
-	at com.expleo.base.BaseClass.callCreateContactAndReturnResponse(BaseClass.java:146)
-	at com.expleo.stepdef.ContactStepDefinitions.create_contact_endpoint_is_invoked(ContactStepDefinitions.java:43)
-	at ✽.create contact endpoint is invoked(file:///C:/Users/VDI006/Documents/GitHub/CucumberFramework/src/test/resources/features/ThinkingTester.feature:7)
-]]>
-</failure>
+<testsuite name="Cucumber" time="21.38" tests="3" skipped="0" failures="0" errors="0">
+<testcase classname="Performing CRUD Operations Using Cyclos" name="User calls web service to create a Address - Example #1.1" time="7.14">
 <system-out><![CDATA[
 Given prepare the request body..............................................passed
-When create contact endpoint is invoked.....................................failed
-And verify the status code..................................................skipped
-Then verify contact created.................................................skipped
+When create address endpoint is invoked.....................................passed
+And verify the status code..................................................passed
+Then verify address created.................................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Performing CRUD Operations Using Thinking Tester" name="User calls web service to get contact - Example #1.1" time="2.438">
-<failure type="java.lang.AssertionError" message="1 expectation failed.
-Expected status code &lt;200&gt; but was &lt;400&gt;.
-">
-<![CDATA[java.lang.AssertionError: 1 expectation failed.
-Expected status code <200> but was <400>.
-
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
-	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:57)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:139)
-	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
-	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
-	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
-	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
-	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:171)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
-	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
-	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
-	at com.expleo.base.BaseClass.verifyTheStatusCode(BaseClass.java:135)
-	at com.expleo.stepdef.ContactStepDefinitions.verify_the_status_code(ContactStepDefinitions.java:91)
-	at ✽.verify the status code(file:///C:/Users/VDI006/Documents/GitHub/CucumberFramework/src/test/resources/features/ThinkingTester.feature:20)
-]]>
-</failure>
+<testcase classname="Performing CRUD Operations Using Cyclos" name="User calls web service to get Address - Example #1.1" time="1.031">
 <system-out><![CDATA[
 Given prepare the request...................................................passed
-When get contact endpoint is invoked........................................passed
-And verify the status code..................................................failed
+When get address endpoint is invoked "id"...................................passed
+And verify the status code..................................................passed
 ]]></system-out>
 </testcase>
-<testcase classname="Performing CRUD Operations Using Thinking Tester" name="User calls web service to update a existing contact - Example #1.1" time="1.84">
-<failure type="java.lang.AssertionError" message="1 expectation failed.
-Expected status code &lt;200&gt; but was &lt;400&gt;.
-">
-<![CDATA[java.lang.AssertionError: 1 expectation failed.
-Expected status code <200> but was <400>.
-
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
-	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
-	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
-	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
-	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
-	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
-	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
-	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
-	at com.expleo.base.BaseClass.verifyTheStatusCode(BaseClass.java:135)
-	at com.expleo.stepdef.ContactStepDefinitions.verify_the_status_code(ContactStepDefinitions.java:91)
-	at ✽.verify the status code(file:///C:/Users/VDI006/Documents/GitHub/CucumberFramework/src/test/resources/features/ThinkingTester.feature:33)
-]]>
-</failure>
-<system-out><![CDATA[
-Given prepare the request body for updating the contact.....................passed
-When update contact endpoint is invoked.....................................passed
-And verify the status code..................................................failed
-Then verify contact updated.................................................skipped
-]]></system-out>
-</testcase>
-<testcase classname="Performing CRUD Operations Using Thinking Tester" name="User calls web service to delete a exsiting contact - Example #1.1" time="1.164">
-<failure type="java.lang.AssertionError" message="1 expectation failed.
-Expected status code &lt;200&gt; but was &lt;400&gt;.
-">
-<![CDATA[java.lang.AssertionError: 1 expectation failed.
-Expected status code <200> but was <400>.
-
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)
-	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:512)
-	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
-	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
-	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:198)
-	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:62)
-	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:185)
-	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:135)
-	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
-	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
-	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
-	at com.expleo.base.BaseClass.verifyTheStatusCode(BaseClass.java:135)
-	at com.expleo.stepdef.ContactStepDefinitions.verify_the_status_code(ContactStepDefinitions.java:91)
-	at ✽.verify the status code(file:///C:/Users/VDI006/Documents/GitHub/CucumberFramework/src/test/resources/features/ThinkingTester.feature:45)
-]]>
-</failure>
+<testcase classname="Performing CRUD Operations Using Cyclos" name="User calls web service to delete a exsiting address - Example #1.1" time="3.417">
 <system-out><![CDATA[
 Given prepare the request...................................................passed
-When delete contact endpoint is invoked.....................................passed
-And verify the status code..................................................failed
-Then verify contact deleted.................................................skipped
+When delete address endpoint is invoked "id"................................passed
+And verify the status code..................................................passed
+Then verify address deleted.................................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

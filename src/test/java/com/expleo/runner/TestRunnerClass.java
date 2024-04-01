@@ -8,6 +8,6 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = { "pretty", "html:target/cucumber-Report.html", "json:target/report.json",
 		"junit:target/junit-results.xml" }, glue = { "com.expleo.stepdef" }, features = {
-				"src/test/resources/features/ThinkingTester.feature" }, dryRun = false)
+				"src/test/resources/features" }, dryRun = false)
 public class TestRunnerClass {
 }
