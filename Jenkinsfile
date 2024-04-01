@@ -37,7 +37,7 @@ pipeline {
                         skippedStepsNumber: -1, 
                         sortingMethod: 'ALPHABETICAL', 
                         undefinedStepsNumber: -1
-                    junit allowEmptyResults: true, testResults: "${WORKSPACE}/junit-results/*.xml"
+                    junit testResults: "${WORKSPACE}/junit-results/*.xml"
                     
            }
         }
