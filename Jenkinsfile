@@ -26,7 +26,7 @@ pipeline {
             }
             post {                 
                 always {
-                        junit testResults: '**target/junit-results.xml'
+                    junit allowEmptyResults: true, testResults: "${WORKSPACE}/junit-results/*.xml"
                     
            }
         }
